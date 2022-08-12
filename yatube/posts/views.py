@@ -10,7 +10,7 @@ from .models import Group, Post, User
 def index(request):
     """Функция отображения главной страницы"""
     post_list = Post.objects.all()
-    paginator = Paginator(post_list, settings.PAGE_POST)
+    paginator = Paginator(post_list, settings.PAGE_POSTS)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
@@ -23,7 +23,7 @@ def group_posts(request, slug):
     """Функция отображения страницы всех постов группы"""
     group = get_object_or_404(Group, slug=slug)
     group_list = group.posts.all()
-    paginator = Paginator(group_list, settings.PAGE_POST)
+    paginator = Paginator(group_list, settings.PAGE_POSTS)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
@@ -72,7 +72,7 @@ def profile(request, username):
     """Функция отображения страницы всех постов пользователя"""
     user = User.objects.get(username=username)
     posts = Post.objects.filter(author=user)
-    paginator = Paginator(posts, settings.PAGE_POST)
+    paginator = Paginator(posts, settings.PAGE_POSTS)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     num_post = Post.objects.filter(author=user).count()
