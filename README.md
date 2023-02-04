@@ -29,7 +29,7 @@ Python 3.7, Django 2.2.19, SQLite, pytest
 •	**Клонируйте репозиторий:**
 
 ```csharp 
-git clone git@github.com:antsakharov/yatube_project.git
+git clone git@github.com:antsakharov/hw03_forms.git
 ```
 
 •	**Установите и активируйте виртуальное окружение:**
